@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+</head>
+<body>
+
+<h2>Edit Student</h2>
+<h2>   {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+</h2>
+
+<form action="/update/{{ student._id }}" method="POST">
+    Name:
+    <input type="text" name="name" value="{{ student.name }}"><br><br>
+
+    Email:
+    <input type="email" name="email" value="{{ student.email }}"><br><br>
+
+    Roll:
+    <input type="text" name="roll" value="{{ student.roll }}"><br><br>
+    
+    <label>Record Audio:</label><br>
+    <button type="button" id="recordBtn">Start Recording</button><br><br>
+    <audio id="audioPlayback" controls></audio>
+    <input type="hidden" name="audio" id="audioInput"><br><br>
+
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>
+
+
+<script>
+let mediaRecorder;
+let audioChunks = [];
+const recordBtn = document.getElementById("recordBtn");
+const audioPlayback = document.getElementById("audioPlayback");
+const audioInput = document.getElementById("audioInput");
+
+recordBtn.addEventListener("click", async () => {
+    if (recordBtn.textContent === "Start Recording") {
+        // Request microphone access
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = e => {
+            audioChunks.push(e.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const audioURL = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioURL;
+
+            // Convert to Base64 to send via hidden input
+            const reader = new FileReader();
+            reader.readAsDataURL(audioBlob);
+            reader.onloadend = () => {
+                audioInput.value = reader.result;
+            };
+        };
+
+        mediaRecorder.start();
+        recordBtn.textContent = "Stop Recording";
+    } else {
+        mediaRecorder.stop();
+        recordBtn.textContent = "Start Recording";
+    }
+});
+</script>
+
+
