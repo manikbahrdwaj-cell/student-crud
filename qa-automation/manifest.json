@@ -1,15 +1,25 @@
 {
   "project_key": "SAUR",
-  "generated_at": "2026-08-14T01:48:32.378259+00:00",
+  "generated_at": "2026-08-14T02:09:09.461106+00:00",
   "script_directory": "qa-automation",
   "requested_stages": [
-    "SMOKE"
+    "SMOKE",
+    "FUNCTIONAL"
   ],
   "stages": [
     {
       "stage": "SMOKE",
       "order": 0,
       "test_cases": [
+        {
+          "manual_test_case_item_id": 2,
+          "test_case_id": "TC-006",
+          "test_case_title": "End-to-end: User login, add to cart, and checkout (full journey)",
+          "is_critical": true,
+          "script_path": "smoke/TC-006.py",
+          "framework": "playwright",
+          "language": "python"
+        },
         {
           "manual_test_case_item_id": 4,
           "test_case_id": "TC-016",
@@ -20,9 +30,24 @@
           "language": "python"
         }
       ]
+    },
+    {
+      "stage": "FUNCTIONAL",
+      "order": 1,
+      "test_cases": [
+        {
+          "manual_test_case_item_id": 2,
+          "test_case_id": "TC-006",
+          "test_case_title": "End-to-end: User login, add to cart, and checkout (full journey)",
+          "is_critical": true,
+          "script_path": "functional/TC-006.py",
+          "framework": "playwright",
+          "language": "python"
+        }
+      ]
     }
   ],
-  "total_test_cases": 1,
+  "total_test_cases": 3,
   "skipped_no_script": 0,
   "skipped_item_ids": []
 }
