@@ -1,0 +1,28 @@
+{
+  "project_key": "SAUR",
+  "generated_at": "2026-08-14T01:28:31.203016+00:00",
+  "script_directory": "qa-automation",
+  "requested_stages": [
+    "SMOKE"
+  ],
+  "stages": [
+    {
+      "stage": "SMOKE",
+      "order": 0,
+      "test_cases": [
+        {
+          "manual_test_case_item_id": 4,
+          "test_case_id": "TC-016",
+          "test_case_title": "End-to-end: Flight Ticket Booking (Boston to London)",
+          "is_critical": true,
+          "script_path": "smoke/TC-016.py",
+          "framework": "playwright",
+          "language": "python"
+        }
+      ]
+    }
+  ],
+  "total_test_cases": 1,
+  "skipped_no_script": 0,
+  "skipped_item_ids": []
+}
