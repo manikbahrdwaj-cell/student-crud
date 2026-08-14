@@ -1,0 +1,28 @@
+{
+  "project_key": "SAUR",
+  "generated_at": "2026-08-14T02:34:19.678986+00:00",
+  "script_directory": "tests/automation",
+  "requested_stages": [
+    "REGRESSION"
+  ],
+  "stages": [
+    {
+      "stage": "REGRESSION",
+      "order": 2,
+      "test_cases": [
+        {
+          "manual_test_case_item_id": 4,
+          "test_case_id": "TC-016",
+          "test_case_title": "End-to-end: Flight Ticket Booking (Boston to London)",
+          "is_critical": true,
+          "script_path": "regression/test_end_to_end_flight_ticket_booking_boston_projectsaurrequirement5designs.py",
+          "framework": "playwright",
+          "language": "python"
+        }
+      ]
+    }
+  ],
+  "total_test_cases": 1,
+  "skipped_no_script": 0,
+  "skipped_item_ids": []
+}
