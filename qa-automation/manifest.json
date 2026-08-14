@@ -1,21 +1,21 @@
 {
   "project_key": "SAUR",
-  "generated_at": "2026-08-14T02:19:53.850205+00:00",
+  "generated_at": "2026-08-14T02:30:36.018814+00:00",
   "script_directory": "qa-automation",
   "requested_stages": [
-    "FUNCTIONAL"
+    "REGRESSION"
   ],
   "stages": [
     {
-      "stage": "FUNCTIONAL",
-      "order": 1,
+      "stage": "REGRESSION",
+      "order": 2,
       "test_cases": [
         {
           "manual_test_case_item_id": 4,
           "test_case_id": "TC-016",
           "test_case_title": "End-to-end: Flight Ticket Booking (Boston to London)",
           "is_critical": true,
-          "script_path": "functional/TC-016.py",
+          "script_path": "regression/TC-016.py",
           "framework": "playwright",
           "language": "python"
         }
